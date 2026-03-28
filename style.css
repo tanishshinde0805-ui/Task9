@@ -1,0 +1,213 @@
+/* ===== Basic Reset ===== */
+/* Remove default spacing and make layout predictable */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f8f9fc;
+  overflow-x: hidden; /* prevents horizontal scroll */
+}
+
+
+/* ===== Navbar ===== */
+/* Simple flex layout for logo, links, and button */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background-color: #fff;
+}
+
+/* Logo size control */
+.logo img {
+  height: 50px;
+}
+
+/* Navigation links in a row */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+/* Link styling */
+.nav-links a {
+  text-decoration: none;
+  color: #555;
+  font-size: 18px;
+  transition: color 0.2s ease;
+}
+
+/* Hover = slight color change */
+.nav-links a:hover {
+  color: #007bff;
+}
+
+/* Login button */
+.login-btn {
+  background-color: #e6f0ff;
+  color: #007bff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.login-btn:hover {
+  background-color: #cce0ff;
+}
+
+
+/* ===== Hero Section ===== */
+/* Main section split into text + image */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px 40px;
+}
+
+/* Left side text */
+.hero-text {
+  width: 50%;
+}
+
+/* Big heading */
+.hero-text h1 {
+  font-size: 45px;
+  color: #333;
+  line-height: 1.2;
+}
+
+/* Highlighted word */
+.hero-text span {
+  color: aqua;
+}
+
+/* Description text */
+.hero-text p {
+  margin: 20px 0;
+  color: #777;
+  font-size: 18px;
+}
+
+
+/* ===== CTA Button ===== */
+/* Main action button with a bit of personality */
+.cta-btn {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+
+  position: relative;
+  overflow: hidden;
+
+  /* smooth hover animation */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect: grows + tilts slightly */
+.cta-btn:hover {
+  transform: scale(1.1) rotate(-3deg) translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Moving gradient layer (for a subtle modern effect) */
+.cta-btn::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 200%;
+  height: 200%;
+
+  background: linear-gradient(45deg, #3498db, #2ecc71);
+
+  transform: translateX(-100%) translateY(-100%);
+  transition: transform 0.5s ease;
+
+  z-index: 0;
+}
+
+/* Animate gradient on hover */
+.cta-btn:hover::before {
+  transform: translateX(0) translateY(0);
+}
+
+/* Keep button text above animation */
+.cta-btn span {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* ===== Hero Image ===== */
+.hero-image img {
+  width: 350px;
+}
+
+
+/* ===== Tablet View ===== */
+@media (max-width: 1024px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-text {
+    width: 100%;
+  }
+
+  .hero-image img {
+    width: 250px;
+    margin-top: 20px;
+  }
+
+  .hero-text h1 {
+    font-size: 32px;
+  }
+
+  .hero-text p {
+    font-size: 16px;
+  }
+}
+
+
+/* ===== Mobile View ===== */
+@media (max-width: 600px) {
+
+  /* Hide nav links to avoid clutter */
+  .nav-links {
+    display: none;
+  }
+
+  .navbar {
+    padding: 10px 20px;
+  }
+
+  .hero {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .hero-text h1 {
+    font-size: 24px;
+  }
+
+  .hero-text p {
+    font-size: 14px;
+  }
+
+  .hero-image img {
+    width: 200px;
+  }
+}
